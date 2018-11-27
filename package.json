@@ -1,0 +1,24 @@
+{
+  "name": "mailrelay",
+  "version": "1.0.0",
+  "description": "Send email from your static web pages with a simple js call.",
+  "main": "mailrelay.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fafournier/mailrelay.git"
+  },
+  "keywords": [
+    "send",
+    "mail",
+    "javascript"
+  ],
+  "author": "François Fournier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fafournier/mailrelay/issues"
+  },
+  "homepage": "https://github.com/fafournier/mailrelay#readme"
+}
