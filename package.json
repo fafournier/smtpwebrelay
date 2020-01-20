@@ -1,0 +1,34 @@
+{
+  "name": "smtpwebrelay",
+  "version": "1.0.0",
+  "description": "Relay your email from your site to your SMTP server so that your static site don't need a back end.",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.3.0",
+    "nodemailer-html-to-text": "^3.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fafournier/smtpwebrelay.git"
+  },
+  "keywords": [
+    "SMTP",
+    "web",
+    "server",
+    "javascript"
+  ],
+  "author": "François Fournier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fafournier/smtpwebrelay/issues"
+  },
+  "homepage": "https://github.com/fafournier/smtpwebrelay#readme"
+}
