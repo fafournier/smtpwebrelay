@@ -1,0 +1,21 @@
+/*
+  Test call
+
+  sendMail({
+    from: 'from@exemple.com',
+    to : 'to@exemple.com',
+    subject: 'subject test mail',
+    text: 'hello world',
+    transport: { // This structure is based on Nodemailer
+      host: "smtp.mailtrap.io",
+      port: 2525,
+      auth: {
+        user: "ebccebfa4c47e6",
+        pass: "f39ab6ca5bda3d"
+      }
+    },
+    consoleLog: true,
+    endpoint: 'http://localhost:3000/send',
+    callback: console.log //callback optional, fall back to Promise
+  });
+*/
