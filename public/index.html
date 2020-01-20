@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SMTPwebrelay.js</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="SMTPwebrelay.js, Send email securely with Javascript, from your static web pages." />
+    <meta name="keywords" content="SMTP web relay email javascript library static page contact form" />
+    <meta name="author" content="François A. Fournier" />
+
+    <link rel="shortcut icon" href="icon.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,700|Muli:300,400,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+
+      <div class="container-fluid">
+        <div class="d-flex align-items-center">
+          <div class="site-logo"><a href="#home" class="smoothscroll">SMTP web relay</a></div>
+          <div>
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-xl-block">
+                <li><a href="#use" class="nav-link smoothscroll">Usage</a></li>
+                <li><a href="#secure" class="nav-link smoothscroll">Security</a></li>
+                <li><a href="#api" class="nav-link smoothscroll">API</a></li>
+                <li><a href="https://github.com/fafournier/smtpwebrelay" class="nav-link" target="_blank" rel="noopener">Code<span class="ext-link"></span></a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="ml-auto">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-xl-block">
+                <li><a href="#donate" class="nav-link">Donate</a></li>
+                <li class="cta"><a href="#send" class="nav-link"><span class="border bg-danger rounded text-white border-danger">Test</span></a></li>
+                <li><a href="#donors" class="nav-link" style="padding: 0px;" title="Thank you, donors, updates subscription, info, T&C, Privacy policy">🙂</a></li>
+              </ul>
+            </nav>
+            <a href="#" class="d-inline-block d-xl-none site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a>
+          </div>
+        </div>
+      </div>
+
+    </header>
+
+    <div class="intro custom-owl-carousel" id="home">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5 mr-auto" data-aos="fade-up">
+
+            <div class="owl-carousel slide-one-item-alt-text">
+              <div class="slide-text">
+                <h1>Send email with Javascript.</h1>
+                <p class="mb-5">
+                  Relay your email from your site to your SMTP server so that your static site don't need a back end.
+                </p>
+                <p><a href="#use" class="btn btn-outline-light py-3 px-5 smoothscroll">Get Started</a></p>
+              </div>
+              <div class="slide-text">
+                <h1>Send email from your static web page.</h1>
+                <p class="mb-5">
+                  Send an email on validation of your form using your own SMTP server.
+                </p>
+                <p><a href="#use" class="btn btn-outline-light py-3 px-5 smoothscroll">Use it</a></p>
+              </div>
+              <div class="slide-text">
+                <h1>Secure email sending from Javascript.</h1>
+                <p class="mb-5">
+                  The service doesn't store anything. You set the parameters, encrypted, then we relay your message securely to your SMTP server.
+                </p>
+                <p><a href="#secure" class="btn btn-outline-light py-3 px-5 smoothscroll">Encrypt settings</a></p>
+              </div>
+              <div class="slide-text">
+                <h1>Open source Security.</h1>
+                <p class="mb-5">You don't have to give me blind trust. I give you everything. For free. </p>
+                <p><small>But you can donate as small amount to support this work as well.</small></p>
+                <p><a href="#donate" class="btn btn-outline-light py-3 px-5 smoothscroll">Donate</a></p>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-lg-6 ml-auto"  data-aos="fade-up" data-aos-delay="100">
+
+            <div class="owl-carousel slide-one-item-alt">
+              <img src="images/img_1.jpg" alt="" class="img-fluid">
+              <img src="images/img_2.jpg" alt="" class="img-fluid">
+              <img src="images/img_3.jpg" alt="" class="img-fluid">
+              <img src="images/img_4.jpg" alt="" class="img-fluid">
+            </div>
+
+            <div class="owl-custom-direction">
+              <a href="#" class="custom-prev"><span class="icon-keyboard_arrow_left"></span></a>
+              <a href="#" class="custom-next"><span class="icon-keyboard_arrow_right"></span></a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site section-1" id="use">
+      <div class="container">
+        <div class="row accordion">
+          <div class="col-lg-11 mb-5">
+            <h2 class="section-title">Easy to use. Flexible.</h2>
+            <p>
+              Browsers can not contact smtp servers directly. That is why I provide a relay server, for free (<a href="#donate" class="smoothscroll">donations welcome</a>).
+              You can now send emails directly through your own SMTP server, with a simple javascript call.
+            </p>
+          </div>
+        </div>
+        <p class="text-center">
+          Choose the best way for you to use this service.
+        </p>
+        <ul class="row mb-4 nav nav-pills">
+          <li class="col-md-6 col-lg-4 mb-4 mb-lg-0 nav-item">
+            <a id="controlOne" href="#usageOne" class="nav-link active btn btn-outline-dark w-100" data-toggle="tab" role="tab">
+              <div>
+                <span class="flaticon-download display-4 text-primary mb-4 d-inline-block"></span>
+                <h3>Javascript library</h3>
+                <p>Easy to use, customizable</p>
+              </div>
+            </a>
+          </li>
+          <li class="col-md-6 col-lg-4 mb-4 mb-lg-0 nav-item">
+            <a id="controlTwo" href="#usageTwo" class="nav-link btn btn-outline-dark w-100" data-toggle="tab" role="tab">
+              <div>
+                <span class="flaticon-monitor display-4 text-primary mb-4 d-inline-block"></span>
+                <h3>HTML form</h3>
+                <p>Simplest to use, no Javascript required</p>
+              </div>
+            </a>
+          </li>
+          <li class="col-md-6 col-lg-4 mb-4 mb-lg-0 nav-item">
+            <a id="controlThree" href="#usageThree" class="nav-link btn btn-outline-dark w-100" data-toggle="tab" role="tab">
+              <div>
+                <span class="flaticon-vector display-4 text-primary mb-4 d-inline-block"></span>
+                <h3>Direct API request</h3>
+                <p>Do what you want, code!</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <div class="row tab-content" role="tablist">
+          <div id="usageOne" class="col-md-10 offset-md-1 p-5 card tab-pane fade show active" role="tabpanel" aria-labelledby="controlOne" data-parent="#use">
+            <h3>Javascript library</h3>
+              <p>1. Include directly the library (recommended for automated updates)<pre class="text-left"><code class="html">&lt;script src="//smtpwebrelay.2812.fr/lib"&gt;&lt;/script&gt;</code></pre></p>
+              <a href="/smtpwebrelay.min.js" class="btn btn-outline-info btn-sm float-right" download>
+                <span class="flaticon-download d-inline-block"></span>
+                Download <span style="text-transform: lowercase;">smtpwebrelay.min.js</span>
+              </a>
+              <p>OR <a href="/smtpwebrelay.min.js" download>Download</a> and include the library<pre class="text-left"><code class="html">&lt;script src="/smtpwebrelay.min.js"&gt;&lt;/script&gt;</code></pre></p>
+              <p>2. Send emails
+<pre class="text-left"><code class="javascript">sendMail({ // This structure is based on <a href="https://nodemailer.com/smtp/" target="_blank" rel="noopener"><u>Nodemailer message Configuration</u>.</a>, <a href="#api" class="smoothscroll"><u>with changes</u></a>.
+  from: 'from@exemple.com',
+  to : 'to@exemple.com',
+  subject: 'subject test mail',
+  text: 'hello world',
+  transport: { // This structure is based on <a href="https://nodemailer.com/smtp/" target="_blank" rel="noopener"><u>Nodemailer transport Configuration</u></a>, <a href="#api" class="smoothscroll"><u>with changes</u></a>.
+    host: "smtp.example.com",
+    port: 465,
+    secure: true, // use TLS
+    auth: {
+      user: "username",
+      pass: "password"
+    }
+  },
+  callback: (error, result)=>{ alert(error || result);} //callback optional, falls back to <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Promise" target="_blank" rel="noopener">Promise</a>
+});</code></pre>
+            </p>
+          </div>
+
+          <div id="usageTwo" class="col-md-10 offset-md-1 p-5 card tab-pane fade" role="tabpanel" aria-labelledby="controlTwo" data-parent="#use">
+            <h3>HTML form</h3>
+
+            <p> Include this form in your page.
+<pre><code class="html">&lt;form action=&quot;/send&quot; method=&quot;POST&quot;&gt;
+            &lt;input name=&quot;from&quot; type=&quot;hidden&quot; value=&quot;your-email@provider.tld&quot;&gt;
+  To        &lt;input name=&quot;to&quot; type=&quot;text&quot; placeholder=&quot;reader@example.com;other@example.com&quot; required=&quot;required&quot;&gt;
+            &lt;input name=&quot;cc&quot; type=&quot;hidden&quot; value=&quot;copy@example.com&quot;&gt;
+  Subject   &lt;input name=&quot;subject&quot; type=&quot;text&quot; placeholder=&quot;Hello&quot;&gt;
+  Text      &lt;textarea name=&quot;text&quot; cols=&quot;30&quot; rows=&quot;10&quot; placeholder=&quot;Hello World&quot;&gt;&lt;/textarea&gt;
+            &lt;input name=&quot;redirect&quot; type=&quot;hidden&quot; value=&quot;https://my.site.confirm.page/#confirm&quot;&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;Send Message&quot;&gt;
+
+            &lt;input name=&quot;transport&quot; type=&quot;hidden&quot;
+            value='{&quot;host&quot;:&quot;smtp.example.com&quot;,&quot;port&quot;:465,&quot;secure&quot;:true,&quot;auth&quot;:{&quot;user&quot;:&quot;username&quot;,&quot;pass&quot;:&quot;password&quot;}}'&gt;
+&lt;/form&gt;</code></pre>
+            </p>
+            <p>
+              <small>
+                Note: The long value  for the transport field represents the transport configuration as defined by the json object, then stringified to be posted as part of the form.
+                I however recommend getting the encrypted version of the transport object to secure your connection details on public pages.
+                <pre><code class="javascript">JSON.stringify({
+  host: "smtp.example.com",
+  port: 465,
+  secure: true, // use TLS
+  auth: {
+    user: "username",
+    pass: "password"
+  }
+});</code></pre>
+                To use, you can adapt the details and use this code in the development console of your browser.
+              </small>
+            </p>
+          </div>
+
+          <div id="usageThree" class="col-md-10 offset-md-1 p-5 card tab-pane fade" role="tabpanel" aria-labelledby="controlThree" data-parent="#use">
+            <h3>Direct API request</h3>
+            <p>1. Create request
+              <pre><code class="javascript">const request = new XMLHttpRequest();
+request.open('POST', 'https://smtpwebrelay.2812.fr/send');</code></pre>
+            </p>
+            <p>2. Prepare AJAX reqest
+              <pre><code class="javascript">request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+request.onreadystatechange = function() { // get results when done
+  if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+    console.log('Email sent to ' + to);
+  }
+}</code></pre>
+            </p>
+            <p>3. Send the AJAX request using "URL encoded information" through the javascript function encodeURIComponent('hello world'))
+              <pre><code class="javascript">request.send(
+  'from=from%40exemple.com'+
+  '&to=to%40exemple.com'+
+  '&subject=hello%20world'+
+  '&text=hello%20whole%20wide%20world!'+
+  '&transport='+ encodeURIComponent(JSON.stringify({
+    host: "smtp.example.com",
+    port: 465,
+    secure: true, // use TLS
+    auth: {
+      user: "username",
+      pass: "password"
+    }
+  }))
+);</code></pre>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site section-2 bg-light" id="secure" data-aos="fade">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5 mr-auto mb-5"  data-aos="fade-up">
+            <div class="mb-5">
+              <h2 class="section-title">Hold on! don't forget to secure your access details.</h2>
+              <p>
+                Spammers would love to get their hands on your SMTP server details. You should really not put them in any public page.
+                Anybody with minimal knowledge of browsers can find those details.
+              </p>
+              <p class="mb-5">
+                That is why I created a system to encrypt your connection details in your own page. No hackable database here.
+                You encrypt the details using the form below and this information can only be read by the relay server I provide.
+                Event more, the information can only be used from the site you declared when encrypting the SMTP details.
+              </p>
+
+              <!-- <ul class="ul-check list-unstyled success">
+                <li>Aperiam neque id illum laudantium</li>
+                <li>Maiores facere est quidem</li>
+                <li>Laudantium autem vero</li>
+              </ul> -->
+
+            </div>
+          </div>
+
+          <div class="col-lg-6"  data-aos="fade-up" data-aos-delay="100">
+            <div class="image-absolute-box">
+              <div class="box">
+                <h3>Security costs...</h3>
+                <p>
+                  A one time payment can greatly help sponsor the security of this service to you.
+                </p>
+                <p class="mb-0"><a href="https://www.paypal.me/francoisaf/2.5" class="btn btn-danger" target="_blank" rel="noopener" style="text-transform: inherit; font-size: smaller;">Donate 2.5€ or more and use cryptographic security</a></p>
+                <p class="mb-0 text-center text-center">
+                  <small>OR</small><br>
+                  <a href="https://liberapay.com/francoisf/donate" class="text-light" target="_blank" rel="noopener">Setup a recurring donation</a>
+                </p>
+              </div>
+              <img src="images/img_5.jpg" alt="Image" class="img-fluid">
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5" id="#encryption">
+          <div class="col-lg-6">
+            <script>
+              function generateTransportSettings(form){
+                const  transport = { // This structure is based on Nodemailer transport Configuration, with changes.
+                  host: form.elements.host.value,
+                  port: form.elements.port.value,
+                  auth: {
+                    user: form.elements.username.value,
+                    pass: form.elements.pass.value
+                  }
+                };
+                console.log("SECURE?", form.elements.secure.value);
+                if(form.elements.secure.checked) transport.secure = true;
+                $('#encryptTransport')[0][0].value = JSON.stringify(transport);
+                return false;
+              }
+            </script>
+            <form id="transportSettings" action="javascript:;" onsubmit="return generateTransportSettings(this);">
+              <h4>1. Set SMTP transport settings</h4>
+
+              <div class="form-group row mb-1">
+                <div class="col-md-12">
+                  <small>Host</small>
+                  <input name="host" type="text" class="form-control" placeholder="smtp.example.com" required="required">
+                </div>
+              </div>
+
+              <div class="form-group row mb-1">
+                <div class="col-md-12">
+                  <small>Port</small>
+                  <input name="port" type="text" class="form-control" placeholder="25, 465, 587, 2525" required="required" value="465">
+                </div>
+              </div>
+
+              <div class="form-group row mb-1">
+                <div class="col-md-12">
+                  <small>Secure (smtps://)</small>
+                  <input name="secure" type="checkbox" checked="true" value="true">
+                </div>
+              </div>
+
+              <div class="form-group row mb-1">
+                <div class="col-md-12">
+                  <small>Username</small>
+                  <input name="username" type="text" class="form-control">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <small>Password</small>
+                  <input name="pass" type="text" class="form-control">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-10 offset-md-1">
+                  <input type="submit" class="btn btn-primary py-3 px-5 btn-block" value="Generate Transport Settings">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-lg-6">
+            <script>
+              function encryptTransport(form){
+                var request = new XMLHttpRequest();
+                if('withCredentials' in request){
+                  request.open('POST', '/crypt');
+                  request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                  request.onreadystatechange = function() { //Appelle une fonction au changement d'état.
+                    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                      $('#copySMTP')[0][0].value = request.responseText.replace(/\"/g, '');
+                      //TODO EncryptedSMTP.set(request.responseText);
+                    }
+                  }
+                  request.send('value='+form.elements.smtpTransport.value+'&referrer='+form.elements.referrer.value);
+                }else{
+                  alert("Your cannot request encryption as it does not support XMLHttpRequest.")
+                }
+                return false;
+              }
+            </script>
+            <form id="encryptTransport" action="javascript:;" onsubmit="return encryptTransport(this);">
+              <h4>2. Encrypt SMTP transport settings</h4>
+
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <small>SMTP transport settings</small>
+                  <textarea name="smtpTransport" class="form-control" rows="3" required></textarea>
+                </div>
+              </div>
+
+              <div class="form-group row mb-1">
+                <div class="col-md-12">
+                  <small>Referrer (website url doing the call)</small>
+                  <input name="referrer" type="text" class="form-control" required>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-10 offset-md-1">
+                  <input type="submit" class="btn btn-primary py-3 px-5 btn-block" value="Encrypt SMTP transport">
+                </div>
+              </div>
+            </form>
+
+            <hr>
+
+            <script>
+              function copySMTP(form){
+                form.elements.encryptedSmtpTransport.select();
+                document.execCommand('copy');
+                return false;
+              }
+            </script>
+            <form id="copySMTP" action="javascript:;" onsubmit="return copySMTP(this);">
+              <h4>3. Copy Encrypted SMTP transport settings</h4>
+
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <small>Encrypted SMTP transport settings</small>
+                  <textarea name="encryptedSmtpTransport" class="form-control" rows="7" required></textarea>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-10 offset-md-1">
+                  <input type="submit" class="btn btn-primary py-3 px-5 btn-block" value="Copy">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-lg-12">
+            <hr>
+
+            <div class="col-md-12">
+              <span class="float-right">
+                <a href="https://www.paypal.me/francoisaf/2.5" class="btn btn-link text-danger" target="_blank" rel="noopener" style="text-transform: inherit; font-size: small;">Donate 2.5€ or more for going the extra mile on cryptographic security !</a>
+              </span>
+              <h4>Optional: Encrypt other settings</h4>
+            </div>
+            <script>
+              function encryptValue(form){
+                var request = new XMLHttpRequest();
+                if('withCredentials' in request){
+                  request.open('POST', '/crypt');
+                  request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                  request.onreadystatechange = function() { //Appelle une fonction au changement d'état.
+                    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                      $('#copyEncryptedValue')[0][0].value = request.responseText.replace(/\"/g, '');
+                    }
+                  }
+                  request.send('value='+form.elements.inputValue.value+'&referrer='+form.elements.referrer.value);
+                }else{
+                  alert("Your cannot request encryption as it does not support XMLHttpRequest.")
+                }
+                return false;
+              }
+            </script>
+            <form id="encryptValue" class="form-inline mt-1" action="javascript:;" onsubmit="return encryptValue(this);">
+              <div class="form-group col-md-1">
+                1.
+              </div>
+
+              <div class="form-group col-md-4">
+                <input name="inputValue" type="text" class="form-control w-100" placeholder="sender@example.com" required>
+              </div>
+
+              <div class="form-group col-md-4">
+                <input name="referrer" type="text" class="form-control w-100" placeholder="Referrer (website url doing the call)" required>
+              </div>
+
+              <div class="form-group col-md-3">
+                <input type="submit" class="btn btn-primary py-3 px-5 btn-block" value="Encrypt value">
+              </div>
+            </form>
+            <script>
+              function copyEncryptedValue(form){
+                form.elements.encryptedValue.select();
+                document.execCommand('copy');
+                return false;
+              }
+            </script>
+            <form id="copyEncryptedValue" class="form-inline mt-1" action="javascript:;" onsubmit="return copyEncryptedValue(this);">
+              <div class="form-group col-md-1">
+                2.
+              </div>
+
+              <div class="form-group col-md-8">
+                <input name="encryptedValue" type="text" class="form-control w-100" required>
+              </div>
+
+              <div class="form-group col-md-3">
+                <input type="submit" class="btn btn-primary py-3 px-5 btn-block" value="Copy">
+              </div>
+            </form>
+
+            <form id="copyEncryptedValue" class="form-inline mt-1">
+              <div class=" form-group col-md-1">
+                3.
+              </div>
+
+              <div class="form-group col-md-11">
+                Paste the value in any text field that you want encrypted. The API supports all fields <code class="javascript">to, cc, bcc, subject, text, html, sender, replyTo, inReplyTo, references, attachDataUrls, watchHtml, amp, encoding, raw, textEncoding, priority, headers, messageId, date, list</code>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site section-3 bg-light" id="api" data-aos="fade">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mb-5">
+            <h2 class="section-title">API</h2>
+            <p>
+              This library and service is specially designed to be the most flexible and as such there are multiple options.
+            </p>
+            <p>
+              This service is using <a href="https://nodemailer.com/" target="_blank" rel="noopener">Nodemailer</a> internally.
+              Most of the options of nodemailer are usable in SMTP web relay.
+              For security reasons, all the options are filtered.
+              Nodemailer is created by <a href="https://github.com/andris9" target="_blank" rel="noopener">Andris Reinman</a>.
+            </p>
+            <p>
+              Once the javascript client side library is included, as shown in the <a href="#use">Usage</a> section, you can call the global function
+              <code class="javascript">sendMail({/* Message object */})</code> to send an email with your SMTP server, from a browser.
+            </p>
+            <p>
+              If you don't want to use a callback, you can call the library with a <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Promise" target="_blank" rel="noopener">Promise</a>. <br>
+              <code class="javascript">sendMail({/* Message object */}).then((r)=>{console.log(r.success, r.error)})</code>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row pr-5 pl-5">
+        <div class="col-md-6">
+          <div class="m-5 p-5 api">
+            <span class="custom-icon-wrap"><span class="flaticon-chat"></span></span>
+            <h3>Message Configuration</h3>
+            <p>
+              SMTP web relay supports the <a href="https://nodemailer.com/message/" target="_blank" rel="noopener">Nodemailer message configuration object</a>.
+              For security, the server filters out any fields that is not allowed and accepts only <code class="javascript">{from, to, cc, bcc, subject, text, html, amp, sender, replyTo, inReplyTo, references, attachDataUrls, watchHtml, encoding, raw, textEncoding, priority, headers, messageId, date, list}</code>.
+              It also adds <code class="javascript">disableFileAccess=true</code> to the configuration automatically to protect itself.
+              For now, <code class="javascript">disableUrlAccess</code> is not used but may be activated in the future if the service is abused (big files, large number of requests, heavy memory usage, cost, ...).
+            </p>
+            <p>
+              Additional options that are not part of Nodemailer are
+              <ul>
+                <li><code class="javascript">onebyone</code>: splits all the addresses listed in <code class="javascript">to</code>, <code class="javascript">cc</code> and <code class="javascript">bcc</code> to send the message to each recipient individually (uses <code class="javascript">to</code> for everyone).</li>
+                <li><code class="javascript">redirect</code>: when a form without using the javascript library and the email has been sent, the server can then instruct the user's browser to perform a redirect to the page listed. This should be a valid, browseable URL or your user will not be able to see the confirmation page. In case an error occur, an error message will be displayed and no redirection will take place.</li>
+                <li><code class="javascript">transport</code>: a Nodemailer transport configuration object, with the constraints defined in this page. For any public page, this should be encrypted using the form provided by this website.</li>
+                <li><code class="javascript">callback</code>: (Available only on the client-side library), this provides you with the return value {success, error} and allows your code to continue after the email has been sent. In case no callback is provided, the library wraps its response in a <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Promise" target="_blank" rel="noopener">Promise</a> and returns that.</li>
+              </ul>
+            </p>
+            <p>
+              All of the text values in message configuration can be encrypted in advance so that they can be kept securely and used only on the intended domain.
+              The encryption is done on the relay server. The encryption key is internal to it and is not available to anybody else. It uses AES-256-CBC. This way everything remains secure.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="m-5 p-5 api">
+            <span class="custom-icon-wrap"><span class="flaticon-download"></span></span>
+            <h3>Transport Configuration</h3>
+            <p>
+              SMTP web relay supports the <a href="https://nodemailer.com/smtp/" target="_blank" rel="noopener">Nodemailer transport configuration object</a>.
+              For security, the server filters out any fields that is not <code class="javascript">{host, port, authMethod, auth: {<a class="https://nodemailer.com/smtp/well-known/" target="_blank" rel="noopener">service</a>, type, user, pass, type, clientId, clientSecret, refreshToken, accessToken, expires, accessUrl, serviceClient, privateKey}, secure, connectionTimeout, greetingTimeout, socketTimeout, pool, maxConnections, maxMessages, rateDelta, rateLimit, proxy}</code>.
+              Other settings such as <code class="javascript">{tls, disableFileAccess, disableUrlAccess, logger, debug, sendmail, newline, path, streamTransport, jsonTransport, ses, dsn, ctx}</code> are ignored when passed into a request.
+            </p>
+            <p>
+              If you plan on using gmail as a SMTP server, please read the <a href="https://nodemailer.com/usage/using-gmail/" target="_blank" rel="noopener">note on Nodemailer's site</a> before proceeding.
+            </p>
+            <p>
+              If you plan on sending bulk emails with this service, please consider hosting your own relay server. The code is available for free. You can still donate as a thank you for the code though!
+              Also, for bulk email sending, you'll find an informative note about <a href="https://nodemailer.com/usage/bulk-mail/" target="_blank" rel="noopener">Delivering bulk email on Nodemailer's side</a>
+            </p>
+            <hr>
+            <h4>Lacking a SMTP server?</h4>
+            <p>
+              Normal SMTP servers for the general public generally come with strict limits in terms of how many emails you can send and how many addresses you can handle per day.
+              If you are considering to send a lot of emails, you should use a SMTP server from a specialized company to ensure delivrability.
+              It would be quite useless to spend the time sending all those emails if they never arrive or just hit the spam folder, isn't it?
+            </p>
+            <p>
+              For small needs, you may get away with using your normal consumer server, the one from your internet provider or email provider. Check out a list on <a href="https://serversmtp.com/smtp-server-address/" target="_blank" rel="noopener">serversmtp.com</a>.
+            </p>
+            <p>
+              However, I don't really advise that. Most professional email sending services have a much better rate of delivery and offer a free quota.
+              Try <a href="https://mailgun.com/" target="_blank" rel="noopener">mailgun.com</a>,
+              <a href="https://sendgrid.com" target="_blank" rel="noopener">sendgrid.com</a>,
+              <a href="https://serversmtp.com/" target="_blank" rel="noopener">serversmtp.com</a> or
+              <a href="https://mailjet.com" target="_blank" rel="noopener">mailjet.com</a>.
+              <small>(I don't hold any stake in your choice. There are no referral links here.)</small>
+              If you want to try for free a fake smtp server, you can try
+              <a href="https://mailtrap.io" targer="_blank" rel="noopener">mailtrap.io</a>,
+              <a href="https://develmail.com/" targer="_blank" rel="noopener">develmail.com</a>,
+              <a href="https://mailcatcher.me/" targer="_blank" rel="noopener">mailcatcher.me (local installation)</a>
+              or <a href="https://mailslurper.com/" targer="_blank" rel="noopener">mailslurper.com (local installation)</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site section-4 donate-wrap bg-primary" id="donate" data-aos="fade">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-7 text-center">
+            <h2 class="section-title mb-3 text-center text-white mx-auto">Free service, to you.</h2>
+            <p class="mb-5 section-desc">
+              Wait, free, why? I just wanted a simple service that works for me and my projects and along the way, I found others that needed it. It's so small and cute that it would just take too much time to build a business model for this project.
+              Hence, I decided to both offer it up for others to use and to host it (open source). As the hosting I offer actually costs me money, I am only encouraging for donations, especially if you use this for a commercial project. And, if you're generous, I may be able to get coffee to support my next open project.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-4">
+          <div class="donation">
+            <h3>Free</h3>
+            <p class="description">Free for as long as I can afford to run the servers. I use it for a lot of my projects so it's probably going to keep going for quite a while. Subscribe below to receive updates.</p>
+            <p><a href="#use" class="btn btn-outline-primary py-3 px-5">Get Started</a></p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="donation donate-popular">
+            <h3>Donate</h3>
+            <p class="description">Running the server does cost me money. What about helping towards those costs with a small donation? One time gift, recurent, $2, 3€, £10 millions, a thank you email, that's up to you.</p>
+            <p><small>For recurent donations starting 1€/month through <a href="https://liberapay.com/francoisf/" target="_blank" rel="noopener">liberapay</a>, you will also get the right to a link to your profile or organization in the <a href="#donors">donors</a> section!</small></p>
+            <p><a href="https://liberapay.com/francoisf/donate" target="_blank" rel="noopener" class="btn  btn-outline-danger py-3 px-5">Donate</a></p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="donation">
+            <h3>Open Source</h3>
+            <p class="description">Get the code and run your own server for free. Keep it for yourself or offer it up for others to use. The code is for a lightweight nodeJS micro-service that scales well.</p>
+            <p><a href="#use" class="btn btn-outline-primary py-3 px-5">Get Started</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site section-5" data-aos="fade" id="send">
+      <div class="container">
+
+        <div class="row align-items-center">
+          <div class="col-md-5 order-1 order-md-2 mb-5 mb-md-0">
+            <img src="images/about_1.jpg" alt="" class="img-fluid" style="margin-bottom: -110px !important;">
+          </div>
+          <div class="col-md-6 mr-auto order-2 order-md-1">
+
+            <h2 class="section-title mb-3">Send an email</h2>
+            <p class="mb-5">Send an email with your own SMTP server and credentials. You can use javascript but it also works with simple web forms.</p>
+
+            <form id="sendMail" action="/send" method="POST">
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <small><a href="#transportSettings" class="smoothscroll">SMTP server connection string</a></small>
+                  <input name="transport" type="text" class="form-control" placeholder='{"host":"smtp.example.com","port":465,"secure":true,"auth":{"user":"username","pass":"password"}}' required="required">
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <small>From</small>
+                  <input name="from" type="text" class="form-control" placeholder="your-email@example.com" required="required">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <small>To [separated by ; or , ]</small>
+                  <input name="to" type="text" class="form-control" placeholder="reader@example.com;manager@example.com" required="required">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <small>Subject</small>
+                  <input name="subject" type="text" class="form-control" placeholder="Hello">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <small>Text</small>
+                  <textarea name="text" class="form-control" cols="30" rows="10" placeholder="Hello World"></textarea>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-6">
+                  <input type="submit" class="btn btn-primary py-3 px-5 btn-block" value="Send Message">
+                </div>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <footer class="footer bg-light" id="donors">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-12">
+            <div class="">
+              <h5><strong>Thanks to my donors! </strong></h5>
+              <p>They help support the project give me time to maintain this service and help towards the cost of the server.</p>
+              <ul class="list-inline">
+                <li>
+                  <a href="https://simitless.com/" target="_blank" rel="noopener">
+                    <img src="//assets.simitless.net/logo/simitless-logotext-400_114.png" alt="Simitless" title="Supported by Simitless">
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row pt-5 mt-5 border-top">
+          <div class="col-md-4 pt-5">
+            <h3>About Me</h3>
+            <p>
+              I am <a href="https://francoisfournier.eu/" target="_blank" rel="noopener">François A. Fournier</a>.
+              An independant <a href="https://microtools.francoisfournier.eu/" target="_blank" rel="noopener">developer</a> and founder of <a href="https://simitless.com/" target="_blank" rel="noopener">Simitless, an information system création platform for small organizations</a>.
+            </p>
+            <p>
+              <small>
+                I personally work on my own time to maintain this project. It is free and open-source. You can help me maintain and pay for the servers and code <a href="https://liberapay.com/francoisf/donate" target="_blank" rel="noopener">by giving me a small donation</a>.
+                If you use the system commercially, it may be worth a couple $/€/£ for the service to continue functionning! You will also get a link to your profile or organization in the <a href="/donor">donors</a> page as a thank you.
+              </small>
+            </p>
+          </div>
+
+          <div class="col-md-3 ml-auto pt-5">
+            <h3>Links</h3>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#home" class="smoothscroll">SMTP web relay</a></li>
+              <li><a href="#use" class="smoothscroll">Usage</a></li>
+              <li><a href="#secure" class="smoothscroll">Security</a></li>
+              <li><a href="#api" class="smoothscroll">API</a></li>
+              <li><a href="#donate" class="smoothscroll">Donate</a></li>
+              <li><a href="#donors" class="smoothscroll">List of Donors</a></li>
+              <li><a href="/privacy">Privacy policy</a></li>
+              <li><a href="/tandc">Terms & Conditions</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-4 pt-5">
+            <h3>Subscribe</h3>
+            <p>Receive updates when things change on this service. Updates are really rare, but this is the only way to know something has changed. If you rely on this service, it is recommended to subscribe! I promise no spam.</p>
+            <!-- Begin Mailchimp Signup Form -->
+              <form action="https://2812.us4.list-manage.com/subscribe/post?u=f0a019af8c1adaee46887384d&amp;id=26008d1c8a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div class="d-flex mb-5">
+                  <input type="email" class="form-control rounded-0" placeholder="Email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                  <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
+                  </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                  <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f0a019af8c1adaee46887384d_26008d1c8a" tabindex="-1" value=""></div>
+                  <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary rounded-0">
+                </div>
+              </form>
+            <!--End mc_embed_signup-->
+          </div>
+        </div>
+
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <div class="border-top pt-5">
+              <p>
+                <small class="block">
+                  &copy; 2019 François Fournier. <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" target="_blank" rel="noopener">CC BY-SA</a>. <br>
+                  All logos and brands are the property of their respective owners and are not covered by the open-source nature of the code of this project. <br>
+                  Page design inspired and based on
+                  &copy; 2019 <a href="https://free-template.co/" target="_blank" rel="noopener">Free-Template.co</a> <a href="https://free-template.co/template-license/" target="_blank" rel="noopener">CC BY 3.0</a>.
+                </small>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </footer>
+
+
+
+  </div> <!-- .site-wrap -->
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="/lib"></script>
+  <script src="js/main.js"></script>
+
+
+    <!-- Matomo Analytics -->
+      <script type="text/javascript">
+        var _paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//analytics.2812.fr/";
+          _paq.push(['setTrackerUrl', u+'matomo.php']);
+          _paq.push(['setSiteId', '6']);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//analytics.2812.fr/matomo.php?idsite=6&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+    <!-- End Matomo Code -->
+  </body>
+</html>
