@@ -185,7 +185,6 @@ app.post("/send", [jsonParser, urlEncodedParser, uploaderAarray], async (req, re
       for (let i = 0; i < transportFields.length; i++) {
         if(transportUserSettings.hasOwnProperty(transportFields[i]))
           transport[transportFields[i]] = transportUserSettings[transportFields[i]];
-
       }
 
       if(transportUserSettings.auth){

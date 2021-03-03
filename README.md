@@ -9,7 +9,7 @@ Unlike most libraries, this one is open source and you can build your own server
 ## Support this project
 
 ### Talk about it
-Promote the use of this service, talk about it, add a link on your site (Emails securely powered by https://smtpwebrelay.js.org/).
+Promote the use of this service, talk about it, add a link on your site (Emails securely relayed by https://smtpwebrelay.mayetsoft.fr/).
 
 ### code
 You found a bug? You have an idea of improvement? Why not open an issue in this repository or submit a pull request to propose a change?
