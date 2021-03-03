@@ -210,7 +210,7 @@ app.post("/send", [jsonParser, urlEncodedParser, uploaderAarray], async (req, re
         const errMessage = "SMTP details could not be validated";
         console.log(errMessage, transport);
         if(req.body.redirect){
-          res.send("Error sending email: " + errMessage+ "."+JSON.Stringify(error));
+          res.send("Error sending email: " + errMessage+ "."+JSON.stringify(error));
         }else{
           res.json({ message: errMessage, error });
         }
