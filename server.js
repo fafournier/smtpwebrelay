@@ -61,6 +61,12 @@ function encryptData(value, referrer){
   return '##'+iv.toString('hex')+'%'+Buffer.concat([cipher.update(data), cipher.final()]).toString('hex'); // concat iv so that the client can give it back for decription. It does not have to be secret but has to be unique.
 };
 
+function cleanReferer(r){ // clean referer of url extras to avoid false filtering of domain due to the different reporting styles of different sources
+  if(r && r.length > 0){
+    return r.replace('http://', '').replace('https://', '').split('/')[0];
+  }else return '';
+}
+
 function decryptData(value, referrer){
   const [ivHex, encryptedData] = value.substring(2).split('%'); // get iv and encrypted data based on the concat scheme we have on the encrypt() function
   if(ivHex && encryptedData){
@@ -69,7 +75,7 @@ function decryptData(value, referrer){
     let decrypted = decipher.update(Buffer.from(encryptedData, 'hex'));
     decrypted = Buffer.concat([decrypted, decipher.final()]);
     const [data, decryptReferrer] = decrypted.toString().split(referrerSplitMarker);
-    if(decryptReferrer != referrer){
+    if(decryptReferrer && referrer && cleanReferer(decryptReferrer) != cleanReferer(referrer)){
         throw new ReferrerError('Origin of call is different to encrypted data allowed referrer. ['+decryptReferrer+' / '+referrer+']');
     }
     return JSON.parse(data);
