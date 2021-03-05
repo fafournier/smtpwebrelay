@@ -16,7 +16,7 @@ global.sendMail = function({
   transport, // don't use ,;:\@ in the password, it makes troubles in urls
   // falls back to js promise if no callback.
   /* Action after sending */ callback,
-  endpoint='https://smtpwebrelay.2812.fr/send',
+  endpoint='https://smtpwebrelay.mayetsoft.fr/send',
   consoleLog = false,
 }){
 
