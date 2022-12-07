@@ -4,8 +4,8 @@
   "description": "Relay your email from your site to your SMTP server so that your static site don't need a back end.",
   "main": "server.js",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
     "multer": "^1.4.2",
     "nodemailer": "^6.5.0",
     "nodemailer-html-to-text": "^3.1.0"
